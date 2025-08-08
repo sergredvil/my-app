@@ -68,12 +68,12 @@
 - [x] Add page analytics integration
 
 ## Export & Deployment
-- [ ] Create static HTML/CSS export functionality
-- [ ] Implement responsive design preview (mobile/tablet/desktop)
-- [ ] Add SEO optimization features
-- [ ] Build page speed optimization
-- [ ] Create shareable page links
-- [ ] Add custom domain support (future feature)
+- [x] Create static HTML/CSS export functionality
+- [x] Implement responsive design preview (mobile/tablet/desktop)
+- [x] Add SEO optimization features
+- [x] Build page speed optimization
+- [x] Create shareable page links
+- [x] Add custom domain support (future feature)
 
 ## UI/UX Polish
 - [ ] Design and implement consistent design system

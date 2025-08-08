@@ -7,6 +7,12 @@ import { PageSettings } from './page-management/page-settings'
 import { PagePublisher } from './page-management/page-publisher'
 import { PageAnalyticsComponent } from './page-management/page-analytics'
 import { usePagePreview } from './page-management/page-preview'
+import { StaticExporter } from './export-deployment/static-exporter'
+import { ResponsivePreview } from './export-deployment/responsive-preview'
+import { SeoOptimizer } from './export-deployment/seo-optimizer'
+import { PageSpeedOptimizer } from './export-deployment/page-speed-optimizer'
+import { ShareableLinks } from './export-deployment/shareable-links'
+import { CustomDomain } from './export-deployment/custom-domain'
 
 interface PagesDashboardProps {
   onSelectPage: (page: Page | null) => void
@@ -19,6 +25,12 @@ export function PagesDashboard({ onSelectPage, onClose }: PagesDashboardProps) {
   const [selectedPageForSettings, setSelectedPageForSettings] = useState<Page | null>(null)
   const [selectedPageForPublishing, setSelectedPageForPublishing] = useState<Page | null>(null)
   const [selectedPageForAnalytics, setSelectedPageForAnalytics] = useState<Page | null>(null)
+  const [selectedPageForExport, setSelectedPageForExport] = useState<Page | null>(null)
+  const [selectedPageForResponsivePreview, setSelectedPageForResponsivePreview] = useState<Page | null>(null)
+  const [selectedPageForSeo, setSelectedPageForSeo] = useState<Page | null>(null)
+  const [selectedPageForSpeed, setSelectedPageForSpeed] = useState<Page | null>(null)
+  const [selectedPageForSharing, setSelectedPageForSharing] = useState<Page | null>(null)
+  const [selectedPageForDomain, setSelectedPageForDomain] = useState<Page | null>(null)
   const { openPreview } = usePagePreview()
 
   useEffect(() => {
@@ -50,7 +62,7 @@ export function PagesDashboard({ onSelectPage, onClose }: PagesDashboardProps) {
     }
   }
 
-  const handleExportPage = (pageId: string, event: React.MouseEvent) => {
+  const handleExportPageJson = (pageId: string, event: React.MouseEvent) => {
     event.stopPropagation()
     
     const pageJson = PagesStore.exportPage(pageId)
@@ -110,6 +122,36 @@ export function PagesDashboard({ onSelectPage, onClose }: PagesDashboardProps) {
   const handleUpdatePage = (updatedPage: Page) => {
     PagesStore.savePage(updatedPage)
     setPages(pages.map(p => p.id === updatedPage.id ? updatedPage : p))
+  }
+
+  const handleExportPage = (page: Page, event: React.MouseEvent) => {
+    event.stopPropagation()
+    setSelectedPageForExport(page)
+  }
+
+  const handleResponsivePreview = (page: Page, event: React.MouseEvent) => {
+    event.stopPropagation()
+    setSelectedPageForResponsivePreview(page)
+  }
+
+  const handleSeoOptimize = (page: Page, event: React.MouseEvent) => {
+    event.stopPropagation()
+    setSelectedPageForSeo(page)
+  }
+
+  const handleSpeedOptimize = (page: Page, event: React.MouseEvent) => {
+    event.stopPropagation()
+    setSelectedPageForSpeed(page)
+  }
+
+  const handleSharePage = (page: Page, event: React.MouseEvent) => {
+    event.stopPropagation()
+    setSelectedPageForSharing(page)
+  }
+
+  const handleCustomDomain = (page: Page, event: React.MouseEvent) => {
+    event.stopPropagation()
+    setSelectedPageForDomain(page)
   }
 
   const handleCreateNewPage = () => {
@@ -283,9 +325,45 @@ export function PagesDashboard({ onSelectPage, onClose }: PagesDashboardProps) {
                           </svg>
                         </button>
                         <button
-                          onClick={(e) => handleExportPage(page.id, e)}
+                          onClick={(e) => handleResponsivePreview(page, e)}
                           className="p-1 hover:bg-gray-100 rounded"
-                          title="Export"
+                          title="Responsive Preview"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a1 1 0 001-1V4a1 1 0 00-1-1H8a1 1 0 00-1 1v16a1 1 0 001 1z" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={(e) => handleSeoOptimize(page, e)}
+                          className="p-1 hover:bg-gray-100 rounded"
+                          title="SEO Optimizer"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={(e) => handleSpeedOptimize(page, e)}
+                          className="p-1 hover:bg-gray-100 rounded"
+                          title="Speed Optimizer"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={(e) => handleSharePage(page, e)}
+                          className="p-1 hover:bg-gray-100 rounded"
+                          title="Share Links"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={(e) => handleExportPage(page, e)}
+                          className="p-1 hover:bg-gray-100 rounded"
+                          title="Export Static Site"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -340,6 +418,50 @@ export function PagesDashboard({ onSelectPage, onClose }: PagesDashboardProps) {
         <PageAnalyticsComponent
           page={selectedPageForAnalytics}
           onClose={() => setSelectedPageForAnalytics(null)}
+        />
+      )}
+
+      {selectedPageForExport && (
+        <StaticExporter
+          page={selectedPageForExport}
+          onClose={() => setSelectedPageForExport(null)}
+        />
+      )}
+
+      {selectedPageForResponsivePreview && (
+        <ResponsivePreview
+          page={selectedPageForResponsivePreview}
+          onClose={() => setSelectedPageForResponsivePreview(null)}
+        />
+      )}
+
+      {selectedPageForSeo && (
+        <SeoOptimizer
+          page={selectedPageForSeo}
+          onUpdatePage={handleUpdatePage}
+          onClose={() => setSelectedPageForSeo(null)}
+        />
+      )}
+
+      {selectedPageForSpeed && (
+        <PageSpeedOptimizer
+          page={selectedPageForSpeed}
+          onUpdatePage={handleUpdatePage}
+          onClose={() => setSelectedPageForSpeed(null)}
+        />
+      )}
+
+      {selectedPageForSharing && (
+        <ShareableLinks
+          page={selectedPageForSharing}
+          onClose={() => setSelectedPageForSharing(null)}
+        />
+      )}
+
+      {selectedPageForDomain && (
+        <CustomDomain
+          page={selectedPageForDomain}
+          onClose={() => setSelectedPageForDomain(null)}
         />
       )}
     </div>
