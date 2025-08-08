@@ -13,7 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Inside `tasks/todo.md` file you can find a list of tasks to be completed. Please read it carefully and start working on it. As you work on the tasks, please update the `tasks/todo.md` file to mark the tasks as completed. Once done, please check in with me
 
-After each section is completed, please create an commit and push it to the repository.
+After each section is completed, please let me know and I'll handle committing and pushing the changes manually.
 
 ## Architecture Overview
 
