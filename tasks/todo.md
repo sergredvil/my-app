@@ -18,10 +18,10 @@
 - [ ] Footer - Site navigation and legal information
 
 ## Core Infrastructure & Setup
-- [ ] Set up database schema for pages, sections, and templates
-- [ ] Create API routes for CRUD operations on pages and sections
-- [ ] Implement authentication system for user accounts
-- [ ] Set up project structure with components, lib, and types directories
+- [x] Set up database schema for pages, sections, and templates
+- [x] Create API routes for CRUD operations on pages and sections
+- [x] Implement authentication system for user accounts
+- [x] Set up project structure with components, lib, and types directories
 
 ## Section Templates System
 - [ ] Create base Section component with common props interface
