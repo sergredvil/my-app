@@ -60,12 +60,12 @@
 - [x] Add button styling options
 
 ## Page Management
-- [ ] Build pages dashboard for user's created pages
-- [ ] Implement page duplication functionality
-- [ ] Add page settings (SEO, meta tags, custom CSS/JS)
-- [ ] Create page publishing system
-- [ ] Build page preview in new tab functionality
-- [ ] Add page analytics integration
+- [x] Build pages dashboard for user's created pages
+- [x] Implement page duplication functionality
+- [x] Add page settings (SEO, meta tags, custom CSS/JS)
+- [x] Create page publishing system
+- [x] Build page preview in new tab functionality
+- [x] Add page analytics integration
 
 ## Export & Deployment
 - [ ] Create static HTML/CSS export functionality
