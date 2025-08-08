@@ -24,14 +24,23 @@
 - [x] Set up project structure with components, lib, and types directories
 
 ## Section Templates System
-- [ ] Create base Section component with common props interface
-- [ ] Build Hero section with 3-4 variations (centered, split, video background, minimal)
-- [ ] Build Features section with 3-4 variations (grid, list, cards, comparison)
-- [ ] Build Pricing section with 3-4 variations (simple, tiered, feature comparison, toggle)
-- [ ] Build Testimonials section with 3-4 variations (carousel, grid, single large, logos)
-- [ ] Build CTA section with 3-4 variations (simple, boxed, full-width, button group)
-- [ ] Build Footer section with 2-3 variations (minimal, detailed, newsletter)
-- [ ] Create section registry/catalog system for easy management
+- [x] Create base Section component with common props interface
+- [x] Build Header section with 2 variations (simple nav, centered logo)
+- [x] Build Hero section with 2 variations (centered, split)
+- [x] Build Features section with 2 variations (grid, cards)
+- [x] Build Pricing section with 2 variations (simple, tiered)
+- [ ] Build Testimonials section with 2 variations (grid, carousel)
+- [ ] Build CTA section with 2 variations (simple, boxed)
+- [ ] Build About section with 2 variations (text-image, centered)
+- [ ] Build Team section with 2 variations (grid, cards)
+- [ ] Build FAQ section with 2 variations (accordion, grid)
+- [ ] Build Contact section with 2 variations (form, info)
+- [ ] Build Newsletter section with 2 variations (simple, boxed)
+- [ ] Build Blog section with 2 variations (grid, list)
+- [ ] Build Gallery section with 2 variations (grid, masonry)
+- [ ] Build Stats section with 2 variations (horizontal, grid)
+- [ ] Build Footer section with 2 variations (minimal, detailed)
+- [x] Create section registry/catalog system for easy management
 
 ## Page Builder Interface
 - [ ] Create drag-and-drop page builder interface
